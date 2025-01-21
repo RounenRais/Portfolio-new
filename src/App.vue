@@ -10,8 +10,18 @@ import projects from "./components/projects.vue";
             <header class="cd-header" data-type="slider-item">
               <NavBar @degerim="degerF"></NavBar>      
             </header>
-            <img :class="deger" class="img1" :src="backgroundIsDark ? imgDark : imgLight" loading="lazy"
-                 alt="Header Image" :key="backgroundIsDark ? 'dark' : 'light' + Date.now()" />
+            <div :class="deger" class="topDivs">
+                <img src="./assets/catgif_no_bg.gif" class="img1" alt="">
+                 <div class="me  ">
+                        <h1>Hi, I'm <span class="name">Yunus</span></h1>
+                        <p>Frontend Developer</p>
+                        <p>UI/UX Designer</p>
+                        <p>Photographer</p>
+                    
+                 </div>          
+            </div>
+            <!-- <img :class="deger" class="img1" :src="backgroundIsDark ? imgDark : imgLight" loading="lazy"
+                 alt="Header Image" :key="backgroundIsDark ? 'dark' : 'light' + Date.now()" /> -->
 
             <h1 class="header" :class="deger" id="welcome">Welcome!</h1>
 
