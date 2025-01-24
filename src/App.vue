@@ -1,22 +1,28 @@
 
 <script setup>
 import NavBar from "./components/navbar.vue"
+import { RouterView } from "vue-router";
 import Projects from "./components/projects.vue";
-import projects from "./components/projects.vue";
+import { useRoute } from "vue-router";
+const route = useRoute();
 </script>
 <template>
+    
     <div id="app"  :class="{ 'bodyDark': backgroundIsDark, 'bodyLight': !backgroundIsDark }" class="animated-background">
         <div class="mainSection ">
             <header class="cd-header" data-type="slider-item">
               <NavBar @degerim="degerF"></NavBar>      
             </header>
+            <div v-if="route.name!='contact'" class="home">
+
+            
             <div :class="deger" class="topDivs">
                 <img src="./assets/catgif_no_bg.gif" class="img1" alt="">
                  <div class="me  ">
                         <h1>Hi, I'm <span class="name">Yunus</span></h1>
                         <p>Frontend Developer</p>
                         <p>UI/UX Designer</p>
-                        <p>Photographer</p>
+                        <p>Backend Developer</p>
                     
                  </div>          
             </div>
@@ -25,8 +31,11 @@ import projects from "./components/projects.vue";
 
             <h1 class="header" :class="deger" id="welcome">Welcome!</h1>
 
-            <Projects :deger="deger"></Projects>            
-                
+            <div class="mainDShadow projects " :class=deger>     
+                 <transition name="fade-slide" mode="out-in">
+                <RouterView @workIndex="workIndexFunc" :workValue="this.work" :deger="deger" />
+              </transition>            
+            </div>       
 
 
             <div class="frame" style="display: flex; width: 100%; justify-content: center; margin-top: 30px; gap: 5px;">
@@ -50,8 +59,17 @@ import projects from "./components/projects.vue";
                 </a>
             </div>
         </div>
+        <div v-else>
+            <transition name="page" mode="out-in">
+                <router-view v-slot="{ Component }">
+                    <component :is="Component" :key="$route.path" />
+                </router-view>
+            </transition>
+        </div>
+        </div>
         <a :class="deger" id="back-to-top" href="#">👆🏼</a>
     </div>
+
 </template>
 
 <script>
@@ -65,7 +83,22 @@ export default {
             deger: true,
             imgDark,
             imgLight,
+            work:[],
             name: "AnimatedBackground",
+            works: [
+                {
+                    title: "Aksu CSS",
+                    description: "A CSS framework that I created for my personal use. It is a lightweight and easy-to-use framework.",
+                },
+                {
+                    title: "Accounting Base",
+                    description: "An accounting software that I developed for a company. It is a web-based software.",
+                },
+                {
+                    title: "Kurs Yanımda",
+                    description: "An education web site for software languages.",
+                }
+            ]
 
         };
     },
@@ -76,8 +109,12 @@ export default {
         degerF(new_deger){
             this.deger=new_deger
             this.backgroundIsDark=!this.backgroundIsDark;
-        }
+        },
 
+        workIndexFunc(index){
+            console.log(index)
+            this.work=this.works[index];
+        }
     }
 };
 </script>
@@ -110,7 +147,19 @@ export default {
     width: 60%;
     flex-direction: column;
 }
+.page-enter-active, .page-leave-active {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
 
+.page-enter-from, .page-leave-to {
+    opacity: 0;
+    transform: translateY(20px); /* Sayfa aşağıdan yukarı çıkacak */
+}
+
+.page-leave-from, .page-enter-to {
+    opacity: 1;
+    transform: translateY(0); /* Normal konuma gelir */
+}
 .nav {
     display: flex;
     justify-content: space-between;

@@ -3,13 +3,13 @@
         <b :class="deger" class="navL" >Yunus Aksu</b>
     </div>
     <div class="links" :class="deger" style="align-items: center; justify-content: center;">
-        <a id="home" :class="deger" class="navL"  href="#">Home</a>
+        <RouterLink to="/" class="navL">Home</RouterLink>
         <select class="languageChange navL" name="navyOp" @change="changeLanguage($event)">
             <option   class="option navL" :class="deger" value="english">English</option>
             <option class="option navL" value="turkish">Türkçe</option>
         </select>
         <a :class="deger" href="#" class="navL"  id="navProjects">Projects</a>
-        <a :class="deger" href="#" class="navL" id="navContact">Contact</a>
+        <RouterLink to="/contact" class="navL">Contact</RouterLink>
     </div>
     <div class="theme">
         <a :class="deger"  style="cursor: pointer;" class="change" @click="rotateIcon">
@@ -20,6 +20,7 @@
 
 </template>
 <script>
+import { RouterLink } from "vue-router";
 export default{
 
     data(){
