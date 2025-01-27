@@ -7,14 +7,14 @@ const router = createRouter({
 
       path: '/',
       name: 'Projects',
-      component: () => import('../components/projects.vue'),    },
+      component: () => import('@/components/projects.vue'),    },
     {
       path: '/about',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('@/views/AboutView.vue'),
     },
     {
       path: '/project',
@@ -22,7 +22,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/theProject.vue'),
+      component: () => import('@/views/theProject.vue'),
     },
     {
       path: '/contact',
@@ -30,7 +30,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/contactMe.vue'),
+      component: () => import('@/views/contactMe.vue'),
     },
     {
       path: '/posts',
@@ -38,7 +38,7 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/posts.vue'),
+      component: () => import('@/views/posts.vue'),
     },
   ],
 })

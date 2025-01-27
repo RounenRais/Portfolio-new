@@ -23,18 +23,18 @@ export default {
   <div :class="deger" class="works">
     <div :class="deger" class="project">
       <router-link @click="project(0)" to="project"
-        ><img class="workImage shadow" src="../assets/css.png" alt=""
+        ><img class="workImage shadow" src="@/assets/css.png" alt=""
       /></router-link>
     </div>
     <div class="project ">
       <router-link @click="project(1)" to="project"
-        ><img class="workImage shadow" src="../assets/bill.png" alt=""
+        ><img class="workImage shadow" src="@/assets/bill.png" alt=""
       /></router-link>
     </div>
     
     <div class="project ">
       <router-link @click="project(2)" to="project"
-      ><img class="workImage shadow" src="../assets/kurs.png" alt=""
+      ><img class="workImage shadow" src="@/assets/kurs.png" alt=""
     /></router-link>
     </div>
   </div>
