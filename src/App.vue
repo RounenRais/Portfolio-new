@@ -18,7 +18,7 @@ const route = useRoute();
       </header>
 
       <!-- Home Section -->
-      <div v-if="route.name != 'contact'" class="home">
+      <div v-if="route.name != 'contact'&&route.name != 'posts'" class="home">
         <div :class="deger" class="topDivs fade-in">
           <img src="./assets/catgif_no_bg.gif" class="img1 fade-in" alt="" />
           <div class="me fade-in">
@@ -41,16 +41,11 @@ const route = useRoute();
           class="frame fade-in"
           style="display: flex; width: 100%; justify-content: center; margin-top: 30px; gap: 5px;"
         >
-          <a :class="deger" href="#" class="btn fade-in">
+          <a :class="deger" href="https://github.com/RounenRais" class="btn fade-in">
             <i class="fab fa-github" style="color: #ffffff;"></i>
           </a>
-          <a :class="deger" href="#" class="btn fade-in">
-            <i class="fab fa-twitter" style="color: #00acee;"></i>
-          </a>
-          <a :class="deger" href="#" class="btn fade-in">
-            <i class="fab fa-whatsapp" style="color: #22d17a;"></i>
-          </a>
-          <a :class="deger" href="#" class="btn fade-in">
+
+          <a :class="deger" href="https://www.linkedin.com/in/yunus-aksu-0a8176327/" class="btn fade-in">
             <i class="fab fa-linkedin-in" style="color: #0e76a8;"></i>
           </a>
           <a :class="deger" href="#" class="btn fade-in">
@@ -63,7 +58,14 @@ const route = useRoute();
       </div>
 
       <!-- Router-view Section -->
-      <div v-else>
+      <div v-else-if="route.name == 'contact'" >
+        <router-view :deger="deger" v-slot="{ Component }">
+          <transition name="slide" mode="out-in">
+            <Component :is="Component" />
+          </transition>
+        </router-view>
+      </div>
+      <div v-else-if="route.name == 'posts'" >
         <router-view :deger="deger" v-slot="{ Component }">
           <transition name="slide" mode="out-in">
             <Component :is="Component" />
@@ -73,6 +75,7 @@ const route = useRoute();
     </div>
     <a :class="deger" id="back-to-top" href="#">👆🏼</a>
   </div>
+  
 </template>
 
 <script>
@@ -103,12 +106,13 @@ export default  {
             "An accounting software that I developed for a company. It is a web-based software.",
         },
         {
-          title: "Kurs Yanımda",
+          title:this.$t('navAbout'),
           description: "An education web site for software languages.",
         },
       ],
     };
   },
+  
   methods: {
     changeLanguage(event) {
       console.log("Language changed to", event.target.value);

@@ -13,8 +13,8 @@
           <label :class="deger" for="message">Message:</label>
           <textarea :class="deger" v-model="formData.message" id="message" required></textarea>
         </div>
-        <button :class="deger" :disabled="isSubmitting" type="submit">
-          {{ isSubmitting ? 'Gönderiliyor...' : 'Gönder' }}
+        <button class="btn" :class="deger" :disabled="isSubmitting" type="submit">
+          {{ isSubmitting ? 'Sending...' : 'Send' }}
         </button>
       </form>
     </div>
@@ -86,19 +86,18 @@
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  button {
-    background-color: #4caf50;
+button {
+    width: 100%;
+    padding: 0.5rem;
     color: white;
     border: none;
-    padding: 0.5rem 1rem;
+    border-radius: 4px;
     cursor: pointer;
   }
   button:disabled {
     background-color: #9e9e9e;
     cursor: not-allowed;
   }
-  button:hover:not(:disabled) {
-    background-color: #45a049;
-  }
+
   </style>
   

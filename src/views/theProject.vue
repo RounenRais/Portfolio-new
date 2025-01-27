@@ -7,7 +7,14 @@ export default{
         return{
             
         }
-    }
+    },
+    computed:{
+        workIndex(){
+
+
+alert(this.workValue.title)
+        }        
+    },
 }
 </script>   
 <template>
@@ -17,4 +24,6 @@ export default{
     <p>{{workValue.description}}</p>
 
    </div>
+
+
 </template>
