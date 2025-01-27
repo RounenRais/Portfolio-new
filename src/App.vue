@@ -23,7 +23,7 @@ const route = useRoute();
           <img src="./assets/catgif_no_bg.gif" class="img1 fade-in" alt="" />
           <div class="me fade-in">
             <h1>Hi, I'm <span class="name">Yunussss</span></h1>
-            <p>Frontend Developer</p>
+            <p>Frontend Developeraaa</p>
             <p>UI/UX Designersadassasa</p>
             <p>Backend Developer</p>
           </div>
