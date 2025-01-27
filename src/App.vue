@@ -25,7 +25,7 @@ const route = useRoute();
             <h1>Hi, I'm <span class="name">Yunussss</span></h1>
             <p>Frontend Developeraaa</p>
             <p>UI/UX Designersadassasa</p>
-            <p>Backend Developer</p>
+            <p>Backend Developeraaaa</p>
           </div>
         </div>
 
