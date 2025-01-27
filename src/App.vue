@@ -24,7 +24,7 @@ const route = useRoute();
           <div class="me fade-in">
             <h1>Hi, I'm <span class="name">Yunus</span></h1>
             <p>Frontend Developer</p>
-            <p>UI/UX Designer</p>
+            <p>UI/UX Designersadassasa</p>
             <p>Backend Developer</p>
           </div>
         </div>
