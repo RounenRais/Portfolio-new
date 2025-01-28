@@ -32,9 +32,9 @@ const route = useRoute();
         <h1 class="header fade-in" :class="deger" id="welcome">Welcome!</h1>
 
         <div class="mainDShadow projects fade-in" :class="deger">
-          <transition name="fade-slide" mode="out-in">
+          
             <router-view @workIndex="workIndexFunc" :workValue="this.work" :deger="deger" />
-          </transition>
+        
         </div>
 
         <div
@@ -92,7 +92,7 @@ export default  {
       deger: true,
       imgDark,
       imgLight,
-      work: [],
+      work: {},
       name: "AnimatedBackground",
       works: [
         {
