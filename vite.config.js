@@ -12,6 +12,11 @@ export default defineConfig({
     vueJsx(),
     vueDevTools(),
   ],
+  build: {
+    rollupOptions: {
+      external: ['phantomjs']
+    }
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
