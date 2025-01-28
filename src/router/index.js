@@ -13,6 +13,8 @@ const router = createRouter({
       path: '/',
       name: 'Projects',
       component: projectsVue,
+      meta: { transition: 'slide-fade' }, // Home sayfası için animasyon
+
 
     },
     {
@@ -24,16 +26,22 @@ const router = createRouter({
       path: '/project',
       name: 'project',
       component:theProjectVue,
+      meta: { transition: 'fade' }, // Contact sayfası için animasyon
+
     },
     {
       path: '/contact',
       name: 'contact',
       component:contactMeVue,
+      meta: { transition: 'slide-fade'},
+
     },
     {
       path: '/posts',
       name: 'posts',
       component: postsVue,
+      meta: { transition: 'slide-fade' }, // Posts sayfası için animasyon
+
     },
   ],
 })

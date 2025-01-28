@@ -37,31 +37,5 @@ export default {
 </script>
 
 <style scoped>
-.posts {
-    padding: 20px;
-}
 
-.posts h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
-.posts ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.posts li {
-    margin-bottom: 20px;
-}
-
-.posts h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-.posts p {
-    font-size: 1em;
-    color: #555;
-}
 </style>
