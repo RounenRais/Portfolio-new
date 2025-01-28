@@ -3,7 +3,9 @@ import { onMounted } from "vue";
 import { ref } from "vue";
 import { RouterLink } from "vue-router";
 export default {
-  props: ["deger"],
+  props: ["deger","workValue"],
+  emits: ['workIndex'],
+
   data() {
     return {};
   },

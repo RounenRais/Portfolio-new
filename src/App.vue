@@ -33,7 +33,7 @@ const route = useRoute();
 
         <div class="mainDShadow projects fade-in" :class="deger">
           
-            <router-view @workIndex="workIndexFunc" :workValue="this.work" :deger="deger" />
+            <router-view @workIndex="workIndexFunc" :workValue="work" :deger="deger" />
         
         </div>
 
@@ -106,7 +106,7 @@ export default  {
             "An accounting software that I developed for a company. It is a web-based software.",
         },
         {
-          title:this.$t('navAbout'),
+          title:"Kurs Yanımda",
           description: "An education web site for software languages.",
         },
       ],

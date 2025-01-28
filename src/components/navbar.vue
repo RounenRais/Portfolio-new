@@ -38,16 +38,12 @@ import { RouterLink } from "vue-router";
 export default {
   data() {
     return {
-        isEnglish: this.$i18n.locale === 'en' ,
       backgroundIsDark: true,
       deger: true,
     };
   },
   methods: {
-    toggleLanguage() {
-      // Dili değiştir
-      this.$i18n.locale = this.isEnglish ? 'en' : 'tr';
-    },
+    
     rotateIcon() {
       const icon = document.getElementById("a1");
       this.deger = this.backgroundIsDark === true ? "whiteMode" : "";
