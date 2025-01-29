@@ -38,7 +38,7 @@ const route = useRoute();
             <h1>Hi, I'm Yunus</h1>
             <p>Frontend Developer</p>
             <p>UI/UX Designer</p>
-            <p>Backend Developer</p>
+            <p>Backend Developeaar</p>
             <div class="fade-container">
 
             </div>
