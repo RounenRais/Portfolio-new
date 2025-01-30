@@ -20,8 +20,13 @@ alert(this.workValue.title)
 <template>
     <router-link class="txtS" :class="deger" to="/">Back</router-link>
     <div :class="deger" class="clickedWork">
-    <h2>{{workValue.title}}</h2>
+    <h3><router-link to="/">works</router-link> > {{workValue.title}}</h3>
     <p>{{workValue.description}}</p>
+    <div class="worksListDiv">
+        <p class="workQ">PLATFORM</p> <span>{{workValue.platform}}</span>
+    </div>
+    <div class="worksListDiv"><p class="workQ">WEBSITE</p> <a :href=workValue.webSitelink>{{workValue.webSitelink}}</a>
+    </div>
 
    </div>
 

@@ -20,7 +20,7 @@
     --list-margin-inline: 2em;
     --list-item-padding-block: 0.2em;
 
-    --color-background: #090b10;
+    --color-background: #afc6ff;
     --color-heading: #80cbc4;
     --color-paragraph: #19cbd8; /*#454e79*/
     --color-accent: #80cbc4;
@@ -29,6 +29,8 @@
     --color-img-shadow: #d896ff;
     --color-div-frm:#71c0b986;
     --color-nav-text:#80cbc4;
+    --color-link-text:#d896ff;
+
     --color-bottom-p:#90e4dc24;
     --color-option:black;
 }
@@ -41,32 +43,37 @@
     bottom: 2.7em;
     right: 2em;
 }
+
 .navL, .txtS {
     color: var(--color-paragraph);
 }
 html, body {
     scroll-behavior: smooth; 
 }
+
 .img1 {
     width: 280px;
     height:280px;
+    border-radius: 20px;
     box-shadow: 5px 5px 10px 5px var(--color-img-shadow); /* Sağ çaprazda gölge */
 }
 
-body {
+body:not(.post-container) {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
 }
-
+a{
+    color: var(--color-link-text);
+}
 .bodyDark {
     background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url('tokyo.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
 }
 .bodyLight {
     background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('desert.jpg');
@@ -99,14 +106,12 @@ html {
     border-radius: 10px;
     padding: 3px;
 }
-html, body {
+html, body:not(.post-container) {
     padding: 0;
     margin: 0;
     width: 100%;
 }
-* {
-    color: var(--color-heading);
-}
+
 h1, .header, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font-family);
     padding-top: var(--heading-padding-start);
@@ -150,6 +155,7 @@ main {
     max-width: var(--main-max-width);
     margin: auto;
 }
+
 h1 {
     font-weight: 800;
     font-size: var(--h1-font-size);
@@ -215,7 +221,7 @@ li {
     gap: 50px;
 }
 a {
-    color: var(--color-accent);
+    color: var(--color-link-text);
     text-decoration-style: solid;
     text-decoration-thickness: 6px;
     text-decoration-color: var(--color-accent-alpha);
@@ -230,6 +236,8 @@ a {
     --color-img-shadow: #967007f3;
     --color-div:#daa557;
     --color-div-frm:#daa557;
+    --color-link-text:#314f6c;
+
     --color-bottom-p:#daa6579f;
     --color-nav-text:#ffffff;
     --color-option: rgb(255, 255, 255);
@@ -287,13 +295,23 @@ a {
     padding-bottom: 20px;
 }
 .clickedWork {
-    padding: 10px;
+    padding: 4%;
 }
 .workT {
     padding: 0;
     margin-inline: 20px;
     margin-top: 5px;
 }
+.source{
+    color: var(--color-paragraph);
+    display: flex;
+    gap: 4%;
+    align-items: center;
+}
+.githubLink, .githubLinkText{
+color: var(--color-paragraph);
+}
+
 .works {
     display: flex;
     flex-direction: row;
@@ -352,20 +370,44 @@ a {
 }
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-background: #090b10;
+        --color-background: #e1e8fb;
         --color-heading: #80cbc4;
         --color-paragraph: #19cbd8; 
         --color-accent: #80cbc4;
         --color-accent-bright: #90e4dc;
         --color-accent-alpha: #90e4dc24;
         --color-img-shadow: #d896ff;
+        
         --color-div-frm: #71c0b986;
         --color-nav-text: #80cbc4;
         --color-option: black;
+        
     }
 }
 .theme-transition {
     animation: backgroundFadeIn 1.5s ease-in-out;
+}
+
+*{
+    text-decoration: none;
+}
+a:hover {
+    transition: all 0.3s ease;
+    text-decoration: underline;
+}
+.workQ{
+    font-size: 13px;
+    background-color:green ;
+    color: white;
+    display: inline;
+    padding: 3px;
+}
+
+.postsList{
+    display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+    gap: 20px;
 }
 @keyframes backgroundFadeIn {
     0% {
@@ -402,28 +444,8 @@ a {
         transform: rotate(360deg);
     }
 }
-.posts {
-    padding: 20px;
-}
-.posts h1 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-.posts ul {
-    list-style-type: none;
-    padding: 0;
-}
-.posts li {
-    margin-bottom: 20px;
-}
-.posts h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-.posts p {
-    font-size: 1em;
-    color: #555;
-}
+
+
 
 
 .me
@@ -436,8 +458,15 @@ height: auto	;
 textarea {
 	resize: vertical;
 }
+
 /* For Mobile Phones */
 @media (max-width: 768px) {
+    .topDivs{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
 	.cd-header{
 		padding-bottom: 4%;
 	}
@@ -456,12 +485,13 @@ textarea {
 		gap: 0;
 		padding: 0;
 		margin: 0;
+        margin-top: 16%;
 	}	
 
 	.works {	
 		flex-wrap: wrap;
 		gap: 0px;
-		padding: 0px;
+	
 		margin: 0px;
 		justify-content: baseline;
 		align-items: center;
@@ -507,7 +537,33 @@ textarea {
         width: 150px;
         height: 150px;
     }
+    .project, .works,.workT{
+        margin: 0;
+        padding: 0;
+        gap: 0;
 
+    }
+    .workImage{}
+    .works{}
+    .projects{
+        
+    }
+    .worksListDiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #app{
+        height: 2000px;
+    }
+    a{
+        color: white;
+    }
+    *{
+        text-align: center;
+    }
+   
     .links {
         display: flex;
         flex-direction: column;

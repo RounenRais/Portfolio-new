@@ -20,14 +20,16 @@ const route = useRoute();
 </script>
 
 <template>
+  
   <div
+     v-if="!route.path.startsWith('/posts/')"
     id="app"
     :class="{ bodyDark: backgroundIsDark, bodyLight: !backgroundIsDark }"
     class="animated-background"
   >
     <div class="mainSection">
       <header class="cd-header" data-type="slider-item">
-        <NavBar @degerim="degerF" />
+        <NavBar :deger2="deger" @degerim="degerF" />
       </header>
 
       <!-- Home Section -->
@@ -38,7 +40,7 @@ const route = useRoute();
             <h1>Hi, I'm Yunus</h1>
             <p>Frontend Developer</p>
             <p>UI/UX Designer</p>
-            <p>Backend Developeaar</p>
+            <p>Backend Developer</p>
             <div class="fade-container">
 
             </div>
@@ -91,18 +93,18 @@ const route = useRoute();
 
       <!-- Router-view Section -->
       <div v-else-if="route.name == 'contact'">
-        <router-view v-slot="{ Component, route }">
+        <router-view :deger="deger" v-slot="{ Component, route }">
           <transition :name="route.meta.transition || 'slide-fade'">
             <component :key="$route.path" :is="Component" />
           </transition>
         </router-view>
       </div>
       <div v-else-if="route.name == 'posts'">
-        <router-view v-slot="{ Component, route }">
+        <router-view :deger="deger" v-slot="{ Component, route }">
           <transition :name="route.meta.transition || 'slide-fade'">
             <component :key="$route.path" :is="Component" />
           </transition>
-        </router-view>
+        </router-view>  
       </div>
     </div>
     
@@ -117,6 +119,8 @@ const route = useRoute();
       </a>
     </transition>
   </div>
+  <router-view :deger="deger" @deger3="degerT" v-if="route.path.startsWith('/posts/')" />
+
 </template>
 
 <script>
@@ -128,9 +132,9 @@ export default {
   data() {
     return {
       backgroundIsDark: true,
-      deger: true,
       imgDark,
       imgLight,
+      deger:"whiteMode",
       work: {},
       name: "AnimatedBackground",
       works: [
@@ -138,19 +142,26 @@ export default {
           title: "Aksu CSS",
           description:
             "A CSS framework that I created for my personal use. It is a lightweight and easy-to-use framework.",
-            startingDate: "2022",
+            startingDate: "2022-",
+            deger3:"",
             progress: "in progress",
-            github:"https://github.com/RounenRais"
-
+            github:"https://github.com/RounenRais",
+            blogName:"",
+            blogLink:"",
+            webSitelink:"https://github.com/RounenRais",
+            platform:"Web",
         },
         {
           title: "Accounting Base",
           description:
             "An accounting software that I developed for a company. It is a web-based software.",
-            startingDate: "2022",
+            startingDate: "2022-",
             progress: "in progress",
-            github:"https://github.com/RounenRais"
-
+            github:"https://github.com/RounenRais",
+            blogName:"",
+            blogLink:"",
+            webSitelink:"https://github.com/RounenRais",
+            platform:"Web",
 
         },
         {
@@ -158,9 +169,11 @@ export default {
           description: "An education web site for software languages.",
           startingDate: "2023",
           progress: "in progress",
-          github:"https://github.com/RounenRais"
-
-
+          github:"https://github.com/RounenRais",
+          blogName:"",
+          blogLink:"",
+          webSitelink:"https://github.com/RounenRais",
+          platform:"Web",
         },
       ],
     };
@@ -172,7 +185,7 @@ export default {
     },
     degerF(new_deger) {
       this.deger = new_deger;
-      this.backgroundIsDark = !this.backgroundIsDark;
+      this.backgroundIsDark = this.deger === "" ? true : false;
     },
     workIndexFunc(index) {
       console.log(index);
